@@ -9,6 +9,7 @@ async function getBook(req, res) {
 }
 
 async function getBooks(req, res) {
+    console.log('**** in book controller *****');
     const books = await bookService.query(req.params.filter)
     res.send(books)
 }
@@ -19,8 +20,8 @@ async function countBooks(req, res) {
     res.send(count);
 }
 
-// http://localhost:3030/api/user/?page=1
 async function getAllBooks(req, res) {
+    console.log('***** in book controller *****');
     const queryPage = req.query.page;
     const pageSize = 4;
     const books = await bookService.query2(queryPage, pageSize);

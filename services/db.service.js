@@ -1,8 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@cluster0.mb30w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 require("dotenv").config();
-
-
+const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@cluster0.mb30w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 module.exports = {
 	getCollection
