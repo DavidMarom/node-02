@@ -5,6 +5,7 @@ const router = express.Router()
 console.log('01 in Book routes');
 
 router.get('/', getAllBooks)
+
 router.get('/count', countBooks)
 
 router.put('/update', updateBook)
