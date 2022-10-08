@@ -1,16 +1,10 @@
 const MongoClient = require('mongodb').MongoClient;
 require("dotenv").config();
-console.log('********* db.service *********');
-console.log(process.env.DB_PASS);
 const uri = 'mongodb+srv://admin:' + process.env.DB_PASS + '@cluster0.mb30w.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-module.exports = {
-	getCollection
-}
+module.exports = { getCollection }
 
-// Database Name
 const dbName = 'templateDB';
-
 var dbConn = null;
 
 async function getCollection(collectionName) {

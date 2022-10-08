@@ -30,7 +30,7 @@ async function query(filterBy) {
 async function query2(page, pageSize) {
 	const collection = await dbService.getCollection('books');
 	try {
-		return await collection.find().skip((page - 1) * pageSize).limit(pageSize).toArray();
+		return await collection.find().skip((page - 1) * pageSize).limit(parseInt(pageSize)).toArray();
 	}
 	catch (err) {
 		console.log('ERROR: cannot find books')

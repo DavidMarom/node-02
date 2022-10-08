@@ -1,29 +1,23 @@
-const bookService = require('./book.service')
-
-// http://localhost:3030/api/book/611d025a36ccc543adf98988
+const bookService = require('./books.service')
 
 async function getBook(req, res) {
-    console.log('█controller: getBook', req.params.id);
     const book = await bookService.getById(req.params.id)
     res.send(book)
 }
 
 async function getBooks(req, res) {
-    console.log('**** in book controller *****');
     const books = await bookService.query(req.params.filter)
     res.send(books)
 }
 
 async function countBooks(req, res) {
-    console.log('02 in book count controller');
     const count = await bookService.count()
     res.send(count);
 }
 
 async function getAllBooks(req, res) {
-    console.log('***** in book controller *****');
     const queryPage = req.query.page;
-    const pageSize = 4;
+    const pageSize = req.query.size;
     const books = await bookService.query2(queryPage, pageSize);
     res.send(books)
 }
@@ -35,14 +29,19 @@ async function deleteBook(req, res) {
 
 async function updateBook(req, res) {
     const book = req.body;
-    console.log('CONTROLLER: ',book);
-
     await bookService.update(book)
+    res.send(book)
+}
+
+async function addBook(req, res) {
+    const book = req.body;
+    await bookService.add(book)
     res.send(book)
 }
 
 
 module.exports = {
+    addBook,
     getBook,
     getAllBooks,
     getBooks,

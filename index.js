@@ -11,8 +11,8 @@ app.use(cors({
     origin: '*'
 }));
 
-const bookRoutes = require('./api/book/book.routes')
-app.use('/api/book', bookRoutes)
+const booksRoutes = require('./api/books/books.routes')
+app.use('/api/books', booksRoutes)
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
